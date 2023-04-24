@@ -2,6 +2,7 @@
 
 namespace App\Controller;
 
+use App\Entity\Campaign;
 use App\Entity\Payment;
 use App\Form\PaymentType;
 use Doctrine\ORM\EntityManagerInterface;
@@ -25,60 +26,37 @@ class PaymentController extends AbstractController
         ]);
     }
 
-    #[Route('/new', name: 'app_payment_new', methods: ['GET', 'POST'])]
-    public function new(Request $request, EntityManagerInterface $entityManager): Response
+    #[Route('/new/{id}', name: 'app_payment_new', methods: ['GET', 'POST'])]
+    public function new(Request $request, EntityManagerInterface $entityManager, Campaign $campaign): Response
     {
+
         $payment = new Payment();
         $form = $this->createForm(PaymentType::class, $payment);
         $form->handleRequest($request);
 
-        if ($form->isSubmitted() && $form->isValid()) {
+        
+
+        if ($form->isSubmitted()) {
+            $payment->getParticipant()->setCampaign($campaign);
+
+            $entityManager->persist($payment->getParticipant());
             $entityManager->persist($payment);
             $entityManager->flush();
 
-            return $this->redirectToRoute('app_payment_index', [], Response::HTTP_SEE_OTHER);
+            dd($request);
+            return $this->redirectToRoute('app_stripe_charge', [
+                'id' => $payment->getId(),
+                'campaign' => $campaign,
+                'payment' => $payment,
+                'stripe_key' => $_ENV["STRIPE_KEY"],
+            ], Response::HTTP_SEE_OTHER);
         }
 
-        return $this->renderForm('payment/new.html.twig', [
+        return $this->render('payment/new.html.twig', [
             'payment' => $payment,
             'form' => $form,
+            'campaign' => $campaign,
+            'stripe_key' => $_ENV["STRIPE_KEY"]
         ]);
-    }
-
-    #[Route('/{id}', name: 'app_payment_show', methods: ['GET'])]
-    public function show(Payment $payment): Response
-    {
-        return $this->render('payment/show.html.twig', [
-            'payment' => $payment,
-        ]);
-    }
-
-    #[Route('/{id}/edit', name: 'app_payment_edit', methods: ['GET', 'POST'])]
-    public function edit(Request $request, Payment $payment, EntityManagerInterface $entityManager): Response
-    {
-        $form = $this->createForm(PaymentType::class, $payment);
-        $form->handleRequest($request);
-
-        if ($form->isSubmitted() && $form->isValid()) {
-            $entityManager->flush();
-
-            return $this->redirectToRoute('app_payment_index', [], Response::HTTP_SEE_OTHER);
-        }
-
-        return $this->renderForm('payment/edit.html.twig', [
-            'payment' => $payment,
-            'form' => $form,
-        ]);
-    }
-
-    #[Route('/{id}', name: 'app_payment_delete', methods: ['POST'])]
-    public function delete(Request $request, Payment $payment, EntityManagerInterface $entityManager): Response
-    {
-        if ($this->isCsrfTokenValid('delete'.$payment->getId(), $request->request->get('_token'))) {
-            $entityManager->remove($payment);
-            $entityManager->flush();
-        }
-
-        return $this->redirectToRoute('app_payment_index', [], Response::HTTP_SEE_OTHER);
     }
 }

@@ -4,6 +4,7 @@ namespace App\Form;
 
 use App\Entity\Participant;
 use Symfony\Component\Form\AbstractType;
+use Symfony\Component\Form\Extension\Core\Type\CheckboxType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
 
@@ -14,7 +15,11 @@ class ParticipantType extends AbstractType
         $builder
             ->add('name')
             ->add('email')
-            ->add('campaign')
+            ->add('hidden', CheckboxType::class,[
+                'attr' => [
+                        'class' => 'checkbox',
+                    ],
+            ])
         ;
     }
 

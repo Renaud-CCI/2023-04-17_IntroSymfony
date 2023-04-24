@@ -13,10 +13,8 @@ class PaymentType extends AbstractType
     {
         $builder
             ->add('amount')
-            ->add('createdAt')
-            ->add('updatedAt')
-            ->add('participant')
-        ;
+            ->add('participant', ParticipantType::class);
+            
     }
 
     public function configureOptions(OptionsResolver $resolver): void

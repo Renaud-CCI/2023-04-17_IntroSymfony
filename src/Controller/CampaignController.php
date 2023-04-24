@@ -3,7 +3,10 @@
 namespace App\Controller;
 
 use App\Entity\Campaign;
+use App\Entity\Participant;
+use App\Entity\Payment;
 use App\Form\CampaignType;
+use Doctrine\ORM\EntityManager;
 use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
@@ -32,11 +35,11 @@ class CampaignController extends AbstractController
         $form = $this->createForm(CampaignType::class, $campaign);
         $form->handleRequest($request);
 
-        if ($form->isSubmitted() && $form->isValid()) {
-            $entityManager->persist($campaign);
-            $entityManager->flush();
-
-            return $this->redirectToRoute('app_campaign_index', [], Response::HTTP_SEE_OTHER);
+        if ($form->isSubmitted()) {
+            $campaign->setId();
+            $entityManager->persist($campaign); // prepare de PDO
+            $entityManager->flush(); // execute de PDO
+            return $this->redirectToRoute('app_campaign_show', ['id' => $campaign->getId()], Response::HTTP_SEE_OTHER);
         }
 
         return $this->render('campaign/new.html.twig', [
@@ -46,10 +49,26 @@ class CampaignController extends AbstractController
     }
 
     #[Route('/{id}', name: 'app_campaign_show', methods: ['GET'])]
-    public function show(Campaign $campaign): Response
+    public function show(Campaign $campaign, EntityManagerInterface $entityManager): Response
     {
+
+        $participants = $entityManager->getRepository(Participant::class)
+                                      ->findBy(['campaign' => $campaign -> getId()]); 
+
+        $payments = [];
+        $totalAmount = 0;
+        foreach ($participants as $participant) {
+            $payment = $entityManager->getRepository(Payment::class)
+                                     ->find($participant->getId());
+            array_push($payments, $payment);
+            $totalAmount += $payment->getAmount();
+        }
+
         return $this->render('campaign/show.html.twig', [
             'campaign' => $campaign,
+            'payments' => $payments,
+            'totalParticipants' => count($participants),
+            'totalAmount' => $totalAmount,
         ]);
     }
 
@@ -65,7 +84,7 @@ class CampaignController extends AbstractController
             return $this->redirectToRoute('app_campaign_index', [], Response::HTTP_SEE_OTHER);
         }
 
-        return $this->renderForm('campaign/edit.html.twig', [
+        return $this->render('campaign/edit.html.twig', [
             'campaign' => $campaign,
             'form' => $form,
         ]);
@@ -74,7 +93,7 @@ class CampaignController extends AbstractController
     #[Route('/{id}', name: 'app_campaign_delete', methods: ['POST'])]
     public function delete(Request $request, Campaign $campaign, EntityManagerInterface $entityManager): Response
     {
-        if ($this->isCsrfTokenValid('delete'.$campaign->getId(), $request->request->get('_token'))) {
+        if ($this->isCsrfTokenValid('delete' . $campaign->getId(), $request->request->get('_token'))) {
             $entityManager->remove($campaign);
             $entityManager->flush();
         }

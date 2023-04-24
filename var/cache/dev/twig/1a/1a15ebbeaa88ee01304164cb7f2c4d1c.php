@@ -65,7 +65,8 @@ class __TwigTemplate_79acdec6f4da64f369183555d6f240d5 extends Template
         $__internal_6f47bbe9983af81f1e7450e9a3e3768f = $this->extensions["Symfony\\Bridge\\Twig\\Extension\\ProfilerExtension"];
         $__internal_6f47bbe9983af81f1e7450e9a3e3768f->enter($__internal_6f47bbe9983af81f1e7450e9a3e3768f_prof = new \Twig\Profiler\Profile($this->getTemplateName(), "block", "title"));
 
-        echo "Cagnot'potes";
+        echo "Campaign
+";
         
         $__internal_6f47bbe9983af81f1e7450e9a3e3768f->leave($__internal_6f47bbe9983af81f1e7450e9a3e3768f_prof);
 
@@ -85,132 +86,184 @@ class __TwigTemplate_79acdec6f4da64f369183555d6f240d5 extends Template
         $__internal_6f47bbe9983af81f1e7450e9a3e3768f->enter($__internal_6f47bbe9983af81f1e7450e9a3e3768f_prof = new \Twig\Profiler\Profile($this->getTemplateName(), "block", "body"));
 
         // line 7
+        echo "\t<div class=\"parallax-container valign-wrapper\">
+\t\t<div class=\"section no-pad-bot\">
+\t\t\t<div class=\"container\">
+\t\t\t\t<h1 class=\"header center white-text light\">";
+        // line 10
+        echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, (isset($context["campaign"]) || array_key_exists("campaign", $context) ? $context["campaign"] : (function () { throw new RuntimeError('Variable "campaign" does not exist.', 10, $this->source); })()), "title", [], "any", false, false, false, 10), "html", null, true);
+        echo "</h1>
+\t\t\t\t<div class=\"row center\">
+\t\t\t\t\t<h5 class=\"header col s12 light\">- Organisée par :
+\t\t\t\t\t\t";
+        // line 13
+        echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, (isset($context["campaign"]) || array_key_exists("campaign", $context) ? $context["campaign"] : (function () { throw new RuntimeError('Variable "campaign" does not exist.', 13, $this->source); })()), "name", [], "any", false, false, false, 13), "html", null, true);
         echo "
+\t\t\t\t\t\t-</h5>
+\t\t\t\t</div>
+\t\t\t</div>
+\t\t</div>
+\t\t<div class=\"parallax\"><img src=\"/assets/images/8.jpg\" alt=\"Titre de la campagne\"></div>
+\t</div>
 
+\t<!-- Show progress -->
+\t<section class=\"progress-section\">
+\t\t<div class=\"progress\">
+\t\t\t<div class=\"determinate\" style=\"width: ";
+        // line 24
+        (((twig_get_attribute($this->env, $this->source, (isset($context["campaign"]) || array_key_exists("campaign", $context) ? $context["campaign"] : (function () { throw new RuntimeError('Variable "campaign" does not exist.', 24, $this->source); })()), "goal", [], "any", false, false, false, 24) != 0)) ? (print (twig_escape_filter($this->env, (((isset($context["totalAmount"]) || array_key_exists("totalAmount", $context) ? $context["totalAmount"] : (function () { throw new RuntimeError('Variable "totalAmount" does not exist.', 24, $this->source); })()) / twig_get_attribute($this->env, $this->source, (isset($context["campaign"]) || array_key_exists("campaign", $context) ? $context["campaign"] : (function () { throw new RuntimeError('Variable "campaign" does not exist.', 24, $this->source); })()), "goal", [], "any", false, false, false, 24)) * 100), "html", null, true))) : (print (0)));
+        echo "%\">
+\t\t\t\t<span>";
+        // line 25
+        echo twig_escape_filter($this->env, twig_round((((isset($context["totalAmount"]) || array_key_exists("totalAmount", $context) ? $context["totalAmount"] : (function () { throw new RuntimeError('Variable "totalAmount" does not exist.', 25, $this->source); })()) / twig_get_attribute($this->env, $this->source, (isset($context["campaign"]) || array_key_exists("campaign", $context) ? $context["campaign"] : (function () { throw new RuntimeError('Variable "campaign" does not exist.', 25, $this->source); })()), "goal", [], "any", false, false, false, 25)) * 100), 1), "html", null, true);
+        echo "% de l'objectif</span>
+\t\t\t</div>
+\t\t</div>
+\t</section>
 
-<div class=\"parallax-container valign-wrapper\">
-  <div class=\"section no-pad-bot\">
-      <div class=\"container\">
-          <h1 class=\"header center white-text light\">Titre de la campagne</h1>
-          <div class=\"row center\">
-              <h5 class=\"header col s12 light\">- Organisée par : Nom de l'auteur -</h5>
-          </div>
-      </div>
-  </div>
-  <div class=\"parallax\"><img src=\"/assets/images/8.jpg\" alt=\"Titre de la campagne\"></div>
-</div>
+\t<div class=\"container participe\">
+\t\t<div
+\t\t\tclass=\"section\">
+\t\t\t<!-- Participation section -->
+\t\t\t<div class=\"row\">
+\t\t\t\t<div class=\"card col s12 m12 l8 offset-l2\">
+\t\t\t\t\t<div class=\"card-content\">
+\t\t\t\t\t\t<div class=\"input-field col s12 l6\">
+\t\t\t\t\t\t\t<input id=\"mount\" type=\"number\" class=\"validate\">
+\t\t\t\t\t\t\t<label for=\"mount\">Votre participation</label>
+\t\t\t\t\t\t</div>
+\t\t\t\t\t\t<a href=\"";
+        // line 41
+        echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("app_payment_new", ["id" => twig_get_attribute($this->env, $this->source, (isset($context["campaign"]) || array_key_exists("campaign", $context) ? $context["campaign"] : (function () { throw new RuntimeError('Variable "campaign" does not exist.', 41, $this->source); })()), "id", [], "any", false, false, false, 41)]), "html", null, true);
+        echo "\" class=\"btn-large waves-effect waves-light pink lighten-1 col s12 l6\">Participer</a>
+\t\t\t\t\t\t<div class=\"clearfix\"></div>
+\t\t\t\t\t</div>
+\t\t\t\t</div>
+\t\t\t</div>
+\t\t\t<div class=\"row\">
+\t\t\t\t<div class=\"col s12 center\">
+\t\t\t\t\t<h4>A propos de la campagne</h4>
+\t\t\t\t</div>
+\t\t\t</div>
+\t\t\t<!--   Icon Section   -->
+\t\t\t<div class=\"row\">
+\t\t\t\t<div class=\"col s12 m6 l3 offset-l3\">
+\t\t\t\t\t<div class=\"icon-block center\">
+\t\t\t\t\t\t<div class=\"btn-large btn-floating white\">
+\t\t\t\t\t\t\t<i class=\"material-icons teal-text\">person</i>
+\t\t\t\t\t\t</div>
+\t\t\t\t\t\t<h3 class=\"center\">";
+        // line 58
+        echo twig_escape_filter($this->env, (isset($context["totalParticipants"]) || array_key_exists("totalParticipants", $context) ? $context["totalParticipants"] : (function () { throw new RuntimeError('Variable "totalParticipants" does not exist.', 58, $this->source); })()), "html", null, true);
+        echo "</h3>
+\t\t\t\t\t\t<p class=\"light\">Participants</p>
+\t\t\t\t\t</div>
+\t\t\t\t</div>
 
-<!-- Show progress -->
-<section class=\"progress-section\">
-  <div class=\"progress\">
-      <div class=\"determinate\" style=\"width: 70%\"><span>70% de l'objectif</span></div>
-  </div>
-</section>
+\t\t\t\t<div class=\"col s12 m6 l3\">
+\t\t\t\t\t<div class=\"icon-block center\">
+\t\t\t\t\t\t<div class=\"btn-large btn-floating white\">
+\t\t\t\t\t\t\t<i class=\"material-icons teal-text\">redeem</i>
+\t\t\t\t\t\t</div>
+\t\t\t\t\t\t<h3 class=\"center\">";
+        // line 68
+        echo twig_escape_filter($this->env, (isset($context["totalAmount"]) || array_key_exists("totalAmount", $context) ? $context["totalAmount"] : (function () { throw new RuntimeError('Variable "totalAmount" does not exist.', 68, $this->source); })()), "html", null, true);
+        echo "</h3>
+\t\t\t\t\t\t<p class=\"light\">euros récoltés</p>
+\t\t\t\t\t</div>
+\t\t\t\t</div>
+\t\t\t</div>
+\t\t\t<!-- Form section -->
+\t\t\t<div class=\"row\">
+\t\t\t\t<form>
+\t\t\t\t\t<div class=\"input-field col s12\">
+\t\t\t\t\t\t<label for=\"description\">Description</label>
+\t\t\t\t\t\t<textarea id=\"description\" class=\"materialize-textarea\" readonly=\"readonly\">";
+        // line 78
+        echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, (isset($context["campaign"]) || array_key_exists("campaign", $context) ? $context["campaign"] : (function () { throw new RuntimeError('Variable "campaign" does not exist.', 78, $this->source); })()), "content", [], "any", false, false, false, 78), "html", null, true);
+        echo "</textarea>
+\t\t\t\t\t</div>
+\t\t\t\t\t<div class=\"input-field col s12 l6\">
+\t\t\t\t\t\t<input id=\"goal\" type=\"number\" readonly=\"readonly\" value=\"";
+        // line 81
+        echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, (isset($context["campaign"]) || array_key_exists("campaign", $context) ? $context["campaign"] : (function () { throw new RuntimeError('Variable "campaign" does not exist.', 81, $this->source); })()), "goal", [], "any", false, false, false, 81), "html", null, true);
+        echo "\">
+\t\t\t\t\t\t<label for=\"goal\">Objectif</label>
+\t\t\t\t\t</div>
+\t\t\t\t\t<div class=\"col s12 l6 offset-l3\">
+\t\t\t\t\t\t<button class=\"btn btn-large waves-effect waves-light col s12\" type=\"submit\" name=\"action\">
+\t\t\t\t\t\t\tModifiez la campagne
+\t\t\t\t\t\t\t<i class=\"material-icons right\">edit</i>
+\t\t\t\t\t\t</button>
+\t\t\t\t\t</div>
+\t\t\t\t</form>
+\t\t\t</div>
+\t\t\t<!-- List -->
+\t\t\t<div class=\"row\">
+\t\t\t\t<div class=\"col s12 center\">
+\t\t\t\t\t<h4>Liste des participants</h4>
+\t\t\t\t</div>
+\t\t\t\t<div class=\"col s12\">
+\t\t\t\t\t<table class=\"highlight responsive-table\">
+\t\t\t\t\t\t<thead>
+\t\t\t\t\t\t\t<tr>
+\t\t\t\t\t\t\t\t<th>Email</th>
+\t\t\t\t\t\t\t\t<th>Participation</th>
+\t\t\t\t\t\t\t</tr>
+\t\t\t\t\t\t</thead>
 
-<div class=\"container participe\">
-  <div class=\"section\">
-      <!-- Participation section -->
-      <div class=\"row\">
-          <div class=\"card col s12 m12 l8 offset-l2\">
-              <div class=\"card-content\">
-                  <div class=\"input-field col s12 l6\">
-                      <input id=\"mount\" type=\"number\" class=\"validate\">
-                      <label for=\"mount\">Votre participation</label>
-                  </div>
-                  <a href=\"create.html\" class=\"btn-large waves-effect waves-light pink lighten-1 col s12 l6\">Participer</a>
-                  <div class=\"clearfix\"></div>
-              </div>
-          </div>
-      </div>
-      <div class=\"row\">
-          <div class=\"col s12 center\">
-              <h4>A propos de la campagne</h4>
-          </div>
-      </div>
-      <!--   Icon Section   -->
-      <div class=\"row\">
-          <div class=\"col s12 m6 l3 offset-l3\">
-              <div class=\"icon-block center\">
-                  <div class=\"btn-large btn-floating white\"><i class=\"material-icons teal-text\">person</i></div>
-                  <h3 class=\"center\">12</h3>
-                  <p class=\"light\">Participants</p>
-              </div>
-          </div>
+\t\t\t\t\t\t<tbody>
+\t\t\t\t\t\t\t";
+        // line 107
+        $context['_parent'] = $context;
+        $context['_seq'] = twig_ensure_traversable((isset($context["payments"]) || array_key_exists("payments", $context) ? $context["payments"] : (function () { throw new RuntimeError('Variable "payments" does not exist.', 107, $this->source); })()));
+        foreach ($context['_seq'] as $context["_key"] => $context["payment"]) {
+            // line 108
+            echo "\t\t\t\t\t\t\t<tr>
+\t\t\t\t\t\t\t\t<td>
+\t\t\t\t\t\t\t\t\t";
+            // line 110
+            if (twig_get_attribute($this->env, $this->source, twig_get_attribute($this->env, $this->source, $context["payment"], "participant", [], "any", false, false, false, 110), "hidden", [], "any", false, false, false, 110)) {
+                echo " 
+\t\t\t\t\t\t\t\t\tanonyme
+\t\t\t\t\t\t\t\t\t";
+            } else {
+                // line 113
+                echo "\t\t\t\t\t\t\t\t\t";
+                echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, twig_get_attribute($this->env, $this->source, $context["payment"], "participant", [], "any", false, false, false, 113), "email", [], "any", false, false, false, 113), "html", null, true);
+                echo "
+\t\t\t\t\t\t\t\t\t";
+            }
+            // line 115
+            echo "\t\t\t\t\t\t\t\t\t</td>
+\t\t\t\t\t\t\t\t<td>";
+            // line 116
+            echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context["payment"], "amount", [], "any", false, false, false, 116), "html", null, true);
+            echo "€</td>
+\t\t\t\t\t\t\t</tr>
+\t\t\t\t\t\t\t";
+        }
+        $_parent = $context['_parent'];
+        unset($context['_seq'], $context['_iterated'], $context['_key'], $context['payment'], $context['_parent'], $context['loop']);
+        $context = array_intersect_key($context, $_parent) + $_parent;
+        // line 119
+        echo "\t\t\t\t\t\t</tbody>
+\t\t\t\t\t</table>
+\t\t\t\t</div>
+\t\t\t</div>
+\t\t</div>
+\t</div>
 
-          <div class=\"col s12 m6 l3\">
-              <div class=\"icon-block center\">
-                  <div class=\"btn-large btn-floating white\"><i class=\"material-icons teal-text\">redeem</i></div>
-                  <h3 class=\"center\">220</h3>
-                  <p class=\"light\">euros récoltés</p>
-              </div>
-          </div>
-      </div>
-      <!-- Form section -->
-      <div class=\"row\">
-          <form>
-              <div class=\"input-field col s12\">
-                  <label for=\"description\">Description</label>
-                  <textarea id=\"description\" class=\"materialize-textarea\" readonly=\"readonly\">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam scelerisque id nunc nec volutpat. Etiam pellentesque tristique arcu, non consequat magna fermentum ac. Cras ut ultricies eros. Maecenas eros justo.</textarea>
-              </div>
-              <div class=\"input-field col s12 l6\">
-                  <input id=\"goal\" type=\"number\" readonly=\"readonly\" value=\"500\">
-                  <label for=\"goal\">Objectif</label>
-              </div>
-              <div class=\"col s12 l6 offset-l3\">
-                  <button class=\"btn btn-large waves-effect waves-light col s12\" type=\"submit\" name=\"action\">
-                      Modifiez la campagne
-                      <i class=\"material-icons right\">edit</i>
-                  </button>
-              </div>
-          </form>
-      </div>
-      <!-- List -->
-      <div class=\"row\">
-          <div class=\"col s12 center\">
-              <h4>Liste des participants</h4>
-          </div>
-          <div class=\"col s12\">
-              <table class=\"highlight responsive-table\">
-                  <thead>
-                  <tr>
-                      <th>Email</th>
-                      <th>Participation</th>
-                  </tr>
-                  </thead>
-
-                  <tbody>
-                  <tr>
-                      <td>Alvin@live.net</td>
-                      <td>5€</td>
-                  </tr>
-                  <tr>
-                      <td>Alan@live.net</td>
-                      <td>12€</td>
-                  </tr>
-                  <tr>
-                      <td>Jonathan@live.net</td>
-                      <td>7€</td>
-                  </tr>
-                  </tbody>
-              </table>
-          </div>
-      </div>
-  </div>
-</div>
-
-<div class=\"parallax-container valign-wrapper\">
-  <div class=\"section no-pad-bot\">
-      <div class=\"container\">
-          <div class=\"row center\">
-              <h4 class=\"header col s12 light\">Une campagne pensée pour vous<br>et pour toutes les occasions</h4>
-          </div>
-      </div>
-  </div>
-  <div class=\"parallax\"><img src=\"assets/images/10.jpg\" alt=\"Une campagne pensée pour vous\"></div>
-</div>
-
-
-
+\t<div class=\"parallax-container valign-wrapper\">
+\t\t<div class=\"section no-pad-bot\">
+\t\t\t<div class=\"container\">
+\t\t\t\t<div class=\"row center\">
+\t\t\t\t\t<h4 class=\"header col s12 light\">Une campagne pensée pour vous<br>et pour toutes les occasions</h4>
+\t\t\t\t</div>
+\t\t\t</div>
+\t\t</div>
+\t\t<div class=\"parallax\"><img src=\"/assets/images/10.jpg\" alt=\"Une campagne pensée pour vous\"></div>
+\t</div>
 ";
         
         $__internal_6f47bbe9983af81f1e7450e9a3e3768f->leave($__internal_6f47bbe9983af81f1e7450e9a3e3768f_prof);
@@ -232,144 +285,147 @@ class __TwigTemplate_79acdec6f4da64f369183555d6f240d5 extends Template
 
     public function getDebugInfo()
     {
-        return array (  88 => 7,  78 => 6,  59 => 3,  36 => 1,);
+        return array (  250 => 119,  241 => 116,  238 => 115,  232 => 113,  226 => 110,  222 => 108,  218 => 107,  189 => 81,  183 => 78,  170 => 68,  157 => 58,  137 => 41,  118 => 25,  114 => 24,  100 => 13,  94 => 10,  89 => 7,  79 => 6,  59 => 3,  36 => 1,);
     }
 
     public function getSourceContext()
     {
         return new Source("{% extends 'base.html.twig' %}
 
-{% block title %}Cagnot'potes{% endblock %}
-
+{% block title %}Campaign
+{% endblock %}
 
 {% block body %}
+\t<div class=\"parallax-container valign-wrapper\">
+\t\t<div class=\"section no-pad-bot\">
+\t\t\t<div class=\"container\">
+\t\t\t\t<h1 class=\"header center white-text light\">{{campaign.title}}</h1>
+\t\t\t\t<div class=\"row center\">
+\t\t\t\t\t<h5 class=\"header col s12 light\">- Organisée par :
+\t\t\t\t\t\t{{campaign.name}}
+\t\t\t\t\t\t-</h5>
+\t\t\t\t</div>
+\t\t\t</div>
+\t\t</div>
+\t\t<div class=\"parallax\"><img src=\"/assets/images/8.jpg\" alt=\"Titre de la campagne\"></div>
+\t</div>
 
+\t<!-- Show progress -->
+\t<section class=\"progress-section\">
+\t\t<div class=\"progress\">
+\t\t\t<div class=\"determinate\" style=\"width: {{ campaign.goal != 0? (totalAmount / campaign.goal) * 100 : 0 }}%\">
+\t\t\t\t<span>{{ ((totalAmount / campaign.goal)*100)|round(1)}}% de l'objectif</span>
+\t\t\t</div>
+\t\t</div>
+\t</section>
 
+\t<div class=\"container participe\">
+\t\t<div
+\t\t\tclass=\"section\">
+\t\t\t<!-- Participation section -->
+\t\t\t<div class=\"row\">
+\t\t\t\t<div class=\"card col s12 m12 l8 offset-l2\">
+\t\t\t\t\t<div class=\"card-content\">
+\t\t\t\t\t\t<div class=\"input-field col s12 l6\">
+\t\t\t\t\t\t\t<input id=\"mount\" type=\"number\" class=\"validate\">
+\t\t\t\t\t\t\t<label for=\"mount\">Votre participation</label>
+\t\t\t\t\t\t</div>
+\t\t\t\t\t\t<a href=\"{{ path('app_payment_new', {'id': campaign.id})}}\" class=\"btn-large waves-effect waves-light pink lighten-1 col s12 l6\">Participer</a>
+\t\t\t\t\t\t<div class=\"clearfix\"></div>
+\t\t\t\t\t</div>
+\t\t\t\t</div>
+\t\t\t</div>
+\t\t\t<div class=\"row\">
+\t\t\t\t<div class=\"col s12 center\">
+\t\t\t\t\t<h4>A propos de la campagne</h4>
+\t\t\t\t</div>
+\t\t\t</div>
+\t\t\t<!--   Icon Section   -->
+\t\t\t<div class=\"row\">
+\t\t\t\t<div class=\"col s12 m6 l3 offset-l3\">
+\t\t\t\t\t<div class=\"icon-block center\">
+\t\t\t\t\t\t<div class=\"btn-large btn-floating white\">
+\t\t\t\t\t\t\t<i class=\"material-icons teal-text\">person</i>
+\t\t\t\t\t\t</div>
+\t\t\t\t\t\t<h3 class=\"center\">{{totalParticipants}}</h3>
+\t\t\t\t\t\t<p class=\"light\">Participants</p>
+\t\t\t\t\t</div>
+\t\t\t\t</div>
 
-<div class=\"parallax-container valign-wrapper\">
-  <div class=\"section no-pad-bot\">
-      <div class=\"container\">
-          <h1 class=\"header center white-text light\">Titre de la campagne</h1>
-          <div class=\"row center\">
-              <h5 class=\"header col s12 light\">- Organisée par : Nom de l'auteur -</h5>
-          </div>
-      </div>
-  </div>
-  <div class=\"parallax\"><img src=\"/assets/images/8.jpg\" alt=\"Titre de la campagne\"></div>
-</div>
+\t\t\t\t<div class=\"col s12 m6 l3\">
+\t\t\t\t\t<div class=\"icon-block center\">
+\t\t\t\t\t\t<div class=\"btn-large btn-floating white\">
+\t\t\t\t\t\t\t<i class=\"material-icons teal-text\">redeem</i>
+\t\t\t\t\t\t</div>
+\t\t\t\t\t\t<h3 class=\"center\">{{totalAmount}}</h3>
+\t\t\t\t\t\t<p class=\"light\">euros récoltés</p>
+\t\t\t\t\t</div>
+\t\t\t\t</div>
+\t\t\t</div>
+\t\t\t<!-- Form section -->
+\t\t\t<div class=\"row\">
+\t\t\t\t<form>
+\t\t\t\t\t<div class=\"input-field col s12\">
+\t\t\t\t\t\t<label for=\"description\">Description</label>
+\t\t\t\t\t\t<textarea id=\"description\" class=\"materialize-textarea\" readonly=\"readonly\">{{campaign.content}}</textarea>
+\t\t\t\t\t</div>
+\t\t\t\t\t<div class=\"input-field col s12 l6\">
+\t\t\t\t\t\t<input id=\"goal\" type=\"number\" readonly=\"readonly\" value=\"{{campaign.goal}}\">
+\t\t\t\t\t\t<label for=\"goal\">Objectif</label>
+\t\t\t\t\t</div>
+\t\t\t\t\t<div class=\"col s12 l6 offset-l3\">
+\t\t\t\t\t\t<button class=\"btn btn-large waves-effect waves-light col s12\" type=\"submit\" name=\"action\">
+\t\t\t\t\t\t\tModifiez la campagne
+\t\t\t\t\t\t\t<i class=\"material-icons right\">edit</i>
+\t\t\t\t\t\t</button>
+\t\t\t\t\t</div>
+\t\t\t\t</form>
+\t\t\t</div>
+\t\t\t<!-- List -->
+\t\t\t<div class=\"row\">
+\t\t\t\t<div class=\"col s12 center\">
+\t\t\t\t\t<h4>Liste des participants</h4>
+\t\t\t\t</div>
+\t\t\t\t<div class=\"col s12\">
+\t\t\t\t\t<table class=\"highlight responsive-table\">
+\t\t\t\t\t\t<thead>
+\t\t\t\t\t\t\t<tr>
+\t\t\t\t\t\t\t\t<th>Email</th>
+\t\t\t\t\t\t\t\t<th>Participation</th>
+\t\t\t\t\t\t\t</tr>
+\t\t\t\t\t\t</thead>
 
-<!-- Show progress -->
-<section class=\"progress-section\">
-  <div class=\"progress\">
-      <div class=\"determinate\" style=\"width: 70%\"><span>70% de l'objectif</span></div>
-  </div>
-</section>
+\t\t\t\t\t\t<tbody>
+\t\t\t\t\t\t\t{% for payment in payments %}
+\t\t\t\t\t\t\t<tr>
+\t\t\t\t\t\t\t\t<td>
+\t\t\t\t\t\t\t\t\t{% if payment.participant.hidden %} 
+\t\t\t\t\t\t\t\t\tanonyme
+\t\t\t\t\t\t\t\t\t{% else %}
+\t\t\t\t\t\t\t\t\t{{ payment.participant.email }}
+\t\t\t\t\t\t\t\t\t{% endif %}
+\t\t\t\t\t\t\t\t\t</td>
+\t\t\t\t\t\t\t\t<td>{{payment.amount}}€</td>
+\t\t\t\t\t\t\t</tr>
+\t\t\t\t\t\t\t{% endfor %}
+\t\t\t\t\t\t</tbody>
+\t\t\t\t\t</table>
+\t\t\t\t</div>
+\t\t\t</div>
+\t\t</div>
+\t</div>
 
-<div class=\"container participe\">
-  <div class=\"section\">
-      <!-- Participation section -->
-      <div class=\"row\">
-          <div class=\"card col s12 m12 l8 offset-l2\">
-              <div class=\"card-content\">
-                  <div class=\"input-field col s12 l6\">
-                      <input id=\"mount\" type=\"number\" class=\"validate\">
-                      <label for=\"mount\">Votre participation</label>
-                  </div>
-                  <a href=\"create.html\" class=\"btn-large waves-effect waves-light pink lighten-1 col s12 l6\">Participer</a>
-                  <div class=\"clearfix\"></div>
-              </div>
-          </div>
-      </div>
-      <div class=\"row\">
-          <div class=\"col s12 center\">
-              <h4>A propos de la campagne</h4>
-          </div>
-      </div>
-      <!--   Icon Section   -->
-      <div class=\"row\">
-          <div class=\"col s12 m6 l3 offset-l3\">
-              <div class=\"icon-block center\">
-                  <div class=\"btn-large btn-floating white\"><i class=\"material-icons teal-text\">person</i></div>
-                  <h3 class=\"center\">12</h3>
-                  <p class=\"light\">Participants</p>
-              </div>
-          </div>
-
-          <div class=\"col s12 m6 l3\">
-              <div class=\"icon-block center\">
-                  <div class=\"btn-large btn-floating white\"><i class=\"material-icons teal-text\">redeem</i></div>
-                  <h3 class=\"center\">220</h3>
-                  <p class=\"light\">euros récoltés</p>
-              </div>
-          </div>
-      </div>
-      <!-- Form section -->
-      <div class=\"row\">
-          <form>
-              <div class=\"input-field col s12\">
-                  <label for=\"description\">Description</label>
-                  <textarea id=\"description\" class=\"materialize-textarea\" readonly=\"readonly\">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam scelerisque id nunc nec volutpat. Etiam pellentesque tristique arcu, non consequat magna fermentum ac. Cras ut ultricies eros. Maecenas eros justo.</textarea>
-              </div>
-              <div class=\"input-field col s12 l6\">
-                  <input id=\"goal\" type=\"number\" readonly=\"readonly\" value=\"500\">
-                  <label for=\"goal\">Objectif</label>
-              </div>
-              <div class=\"col s12 l6 offset-l3\">
-                  <button class=\"btn btn-large waves-effect waves-light col s12\" type=\"submit\" name=\"action\">
-                      Modifiez la campagne
-                      <i class=\"material-icons right\">edit</i>
-                  </button>
-              </div>
-          </form>
-      </div>
-      <!-- List -->
-      <div class=\"row\">
-          <div class=\"col s12 center\">
-              <h4>Liste des participants</h4>
-          </div>
-          <div class=\"col s12\">
-              <table class=\"highlight responsive-table\">
-                  <thead>
-                  <tr>
-                      <th>Email</th>
-                      <th>Participation</th>
-                  </tr>
-                  </thead>
-
-                  <tbody>
-                  <tr>
-                      <td>Alvin@live.net</td>
-                      <td>5€</td>
-                  </tr>
-                  <tr>
-                      <td>Alan@live.net</td>
-                      <td>12€</td>
-                  </tr>
-                  <tr>
-                      <td>Jonathan@live.net</td>
-                      <td>7€</td>
-                  </tr>
-                  </tbody>
-              </table>
-          </div>
-      </div>
-  </div>
-</div>
-
-<div class=\"parallax-container valign-wrapper\">
-  <div class=\"section no-pad-bot\">
-      <div class=\"container\">
-          <div class=\"row center\">
-              <h4 class=\"header col s12 light\">Une campagne pensée pour vous<br>et pour toutes les occasions</h4>
-          </div>
-      </div>
-  </div>
-  <div class=\"parallax\"><img src=\"assets/images/10.jpg\" alt=\"Une campagne pensée pour vous\"></div>
-</div>
-
-
-
+\t<div class=\"parallax-container valign-wrapper\">
+\t\t<div class=\"section no-pad-bot\">
+\t\t\t<div class=\"container\">
+\t\t\t\t<div class=\"row center\">
+\t\t\t\t\t<h4 class=\"header col s12 light\">Une campagne pensée pour vous<br>et pour toutes les occasions</h4>
+\t\t\t\t</div>
+\t\t\t</div>
+\t\t</div>
+\t\t<div class=\"parallax\"><img src=\"/assets/images/10.jpg\" alt=\"Une campagne pensée pour vous\"></div>
+\t</div>
 {% endblock %}
-", "campaign/show.html.twig", "/shared/httpd/my_project_directory/templates/campaign/show.html.twig");
+", "campaign/show.html.twig", "/home/renaud/devilbox/data/www/my_project_directory/templates/campaign/show.html.twig");
     }
 }

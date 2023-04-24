@@ -5,38 +5,45 @@ namespace App\Controller;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
+use Doctrine\ORM\EntityManagerInterface;
+use App\Entity\Campaign;
+use App\Entity\Participant;
+use App\Entity\Payment;
+use App\Form\CampaignType;
 
 class HomeController extends AbstractController
 {
-    #[Route('/', name: 'app_home')]
-    public function index(): Response
+
+    #[Route('/', name: 'home')]
+    public function index(EntityManagerInterface $entityManager): Response
     {
+        $campaigns = $entityManager
+            ->getRepository(Campaign::class)
+            ->findAll();
+
+        
+
+
         return $this->render('home/index.html.twig', [
-            'controller_name' => 'HomeController',
+            'campaigns' => $campaigns,
         ]);
     }
 
-    #[Route('/campaign_v1/create', name: 'campaign_create')]
-    public function campaign_create(): Response
+    #[Route('/campaign_v1/create', name: 'create_campaign')]
+    public function createCampaign(): Response
     {
-        return $this->render('campaign/create.html.twig', [
-            'controller_name' => 'HomeController',
-        ]);
+        return $this->render('campaign_v1/create.html.twig', []);
     }
 
-    #[Route('/campaign_v1/show', name: 'campaign_show')]
-    public function campaign_show(): Response
+    #[Route('/campaign_v1/show', name: 'show_campaign')]
+    public function showCampaign(): Response
     {
-        return $this->render('campaign/show.html.twig', [
-            'controller_name' => 'HomeController',
-        ]);
+        return $this->render('campaign_v1/show.html.twig', []);
     }
 
-    #[Route('/payments/payment', name: 'payments_payment')]
-    public function payments_payment(): Response
+    #[Route('/payment/create', name: 'create_payment')]
+    public function createPayment(): Response
     {
-        return $this->render('payments/payment.html.twig', [
-            'controller_name' => 'HomeController',
-        ]);
+        return $this->render('payment/create.html.twig', []);
     }
 }
